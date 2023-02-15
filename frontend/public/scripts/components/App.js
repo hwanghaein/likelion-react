@@ -1,9 +1,3 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -29,19 +23,32 @@ var App = /*#__PURE__*/function (_React$Component) {
     }
     _this = _super.call.apply(_super, [this].concat(args));
     _defineProperty(_assertThisInitialized(_this), "state", {
-      headline: 'React Application'
+      headline: 'React Application',
+      // isDisabled: false,
+      isToggle: false
+    });
+    _defineProperty(_assertThisInitialized(_this), "originalHeadline", _this.state.headline);
+    _defineProperty(_assertThisInitialized(_this), "handleChangeHeadline", function () {
+      _this.setState({
+        headline: 'NEW HEADLINE! 😃',
+        isDisabled: true
+      });
     });
     return _this;
   }
   _createClass(App, [{
     key: "render",
     value: function render() {
+      console.log(this);
       return /*#__PURE__*/React.createElement("div", {
         "data-component": "App"
-      }, /*#__PURE__*/React.createElement("h1", null, this.state.headline));
+      }, /*#__PURE__*/React.createElement("h1", null, this.state.headline), /*#__PURE__*/React.createElement("button", {
+        disabled: this.state.isDisabled,
+        type: "button",
+        onClick: this.handleChangeHeadline
+      }, "\uD5E4\uB4DC\uB77C\uC778 \uC5C5\uB370\uC774\uD2B8"));
     }
   }]);
   return App;
 }(React.Component);
-var _default = App;
-exports.default = _default;
+export default App;
