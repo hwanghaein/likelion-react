@@ -1,10 +1,4 @@
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -18,44 +12,56 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-var Home = /*#__PURE__*/function (_React$Component) {
-  _inherits(Home, _React$Component);
-  var _super = _createSuper(Home);
-  function Home() {
+var Products = /*#__PURE__*/function (_React$Component) {
+  _inherits(Products, _React$Component);
+  var _super = _createSuper(Products);
+  function Products() {
     var _this;
-    _classCallCheck(this, Home);
+    _classCallCheck(this, Products);
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
     _this = _super.call.apply(_super, [this].concat(args));
     _defineProperty(_assertThisInitialized(_this), "state", {
-      descriptionList: {
-        api: 'Application Programming Interface',
-        html: 'Hyper Text Markup Language',
-        css: 'Cascading Style Sheets',
-        rwd: 'Responsive Web Design',
-        awd: 'Adaptive Web Design',
-        ajax: 'Asynchronous JavaScript And <abbr title="eXtensible Markup Language">XML</abbr>'
-      }
+      products: [{
+        id: 'product-dkfj',
+        name: '웰치스',
+        price: 980,
+        image: 'https://img.danawa.com/prod_img/500000/648/889/img/16889648_1.jpg?shrink=500:500&_v=20221021170923'
+      }, {
+        id: 'product-ekdi',
+        name: '두부 1kg',
+        price: 2180,
+        image: 'https://contents.lotteon.com/itemimage/_v105312/LF/14/37/17/3_/0/LF1437173_0_2.jpg/dims/resizef/720X720'
+      }]
     });
     return _this;
   }
-  _createClass(Home, [{
+  _createClass(Products, [{
     key: "render",
     value: function render() {
-      var descriptionList = this.state.descriptionList;
-      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h2", null, "\uC124\uBA85 \uBAA9\uB85D \uB9AC\uC2A4\uD2B8 \uB80C\uB354\uB9C1"), /*#__PURE__*/React.createElement("dl", {
-        lang: "en-GB"
-      }, Object.entries(descriptionList).map(function (_ref) {
-        var _ref2 = _slicedToArray(_ref, 2),
-          key = _ref2[0],
-          value = _ref2[1];
-        return /*#__PURE__*/React.createElement(React.Fragment, {
-          key: key
-        }, /*#__PURE__*/React.createElement("dt", null, key.toUpperCase()), /*#__PURE__*/React.createElement("dd", null, value));
+      var products = this.state.products;
+      var figcaptionStyle = {
+        display: 'flex',
+        gap: 12
+      };
+      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h2", null, "\uB9AC\uC2A4\uD2B8 \uB80C\uB354\uB9C1"), /*#__PURE__*/React.createElement("ul", null, products.map(function (_ref) {
+        var id = _ref.id,
+          name = _ref.name,
+          price = _ref.price,
+          image = _ref.image;
+        return /*#__PURE__*/React.createElement("li", {
+          key: id
+        }, /*#__PURE__*/React.createElement("figure", null, /*#__PURE__*/React.createElement("img", {
+          src: image,
+          height: 100,
+          alt: ""
+        }), /*#__PURE__*/React.createElement("figcaption", {
+          style: figcaptionStyle
+        }, /*#__PURE__*/React.createElement("span", null, name), /*#__PURE__*/React.createElement("span", null, price))));
       })));
     }
   }]);
-  return Home;
+  return Products;
 }(React.Component);
-export default Home;
+export default Products;
